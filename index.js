@@ -33,10 +33,13 @@ const songName = document.querySelector("#song-name");
 const channelName = document.querySelector("#channel-name");
 const songImage = document.querySelector("#song-image");
 
-// Audio Source
+updateElements();
+
+// ***** FUNCTIONS *****
+
 function updateElements() {
   currentSong = songs[songCount];
-  audioElement.src = currentSong.audioFile;
+  audioElement.src = currentSong.audioFile
   songName.innerText = currentSong.songName;
   channelName.innerText = currentSong.channelName;
   songImage.src = currentSong.image;
@@ -44,22 +47,24 @@ function updateElements() {
 
 function resetData() {
   clearInterval(songRangeInterval);
-  songRange.value = 0;
   console.log('interval cleared');
-
+  songRange.value = 0;
 }
 
 function playSong() {
   if(audioElement.paused) {
     console.log('play');
     playBtn.setAttribute("class","fa-solid fa-circle-stop");
-    console.log('range',parseInt(audioElement.duration));
-    // update Range 
-    songRange.max = parseInt(audioElement.duration);
-    // songRangeUpdate()
+    console.log('range',audioElement.duration);
+    
+    resetData();
+    updateElements()
+    // song play
     audioElement.play()
+    console.log('before PLAY',audioElement.duration);
     songRangeInterval = setInterval(() => {
       console.log(parseInt(songRange.value),parseInt(audioElement.duration));
+      songRange.max = parseInt(audioElement.duration);
       if(parseInt(songRange.value) === parseInt(audioElement.duration) || parseInt(songRange.value) > parseInt(audioElement.duration)){
           console.log('reachhhed');
           // clearInterval(songRangeInterval);
@@ -85,9 +90,8 @@ function prevSong() {
   clearInterval(songRangeInterval);
   if(audioElement.paused && songCount >= 1) {
     console.log('RESET',songCount);
-    resetData()
     songCount--;
-    updateElements()
+    playSong()
   }
   else if(!audioElement.paused && songCount >= 1) {
     pauseSong();
@@ -99,26 +103,20 @@ function prevSong() {
 // NEXT BUTTON FUNCTION
 function nextSong() {
   clearInterval(songRangeInterval);
-  if(audioElement.paused && songCount <= (songs.length-1)) {
+  console.log('NEXT SONG EXECUTED');
+  if(audioElement.paused && songCount < (songs.length-1)) {
     console.log('NEXT',songCount);
-    resetData()
     songCount++;
-    updateElements()
+    playSong()
   }
-  else if(!audioElement.paused && songCount <= (songs.length-1)){
+  else if(!audioElement.paused && songCount < (songs.length-1)){
     pauseSong();
     nextSong();
     playSong();
-    // resetData()
-    // songCount++;
-    // updateElements()
-    // playSong()
   }
 }
 
-updateElements()
-
-// RANGE INPUT LISTENER
+// ***** EVENT LISTENER *****
 
 songRange.addEventListener('input',()=> {
   audioElement.currentTime = songRange.value;
@@ -142,6 +140,3 @@ nextBtn.addEventListener("click",() => {
 prevBtn.addEventListener("click",() => {
   prevSong()
 })
-
-
-
