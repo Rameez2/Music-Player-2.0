@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Fredoka+One&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(69,83,126);
+}
+
+#container {
+    width: 400px;
+    height: 715px;
+    border-radius: 40px;
+    margin-top: 100px;
+    background-color: rgb(48,49,81);
+}
+
+#container:hover{
+    -webkit-box-shadow: 0px 1px 60px -4px rgba(177,134,217,0.96);
+}
+
+#container > *{
+    margin: 23px;
+}
+
+#head{
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rgb(152,164,208);
+    font-weight: 900;
+    font-size: 25px;
+}
+
+#head > * {
+    cursor: pointer;
+}
+
+#main-content{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    align-items: center;
+}
+
+#main-content > img {
+    width: 355px;
+    height: 355px;
+    border-radius: 40px;
+}
+
+#song-name{
+    font-family: 'Fredoka One', cursive;
+    color: rgb(152,164,208);
+    font-size: 30px;
+    width: auto;
+}
+
+#channel-name{
+    font-family: monospace;
+    font-size: 20px;
+    margin: 0;
+    color: rgb(140,151,193);
+}
+
+#song-range{
+    margin: 23px;
+    width: 300px;
+}
+
+#controls{
+    margin: 0 23px 0 23px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: rgb(79,75,127);
+    font-size: 55px;
+}
+
+#controls > *{
+    cursor: pointer;
+}
+
+
+/* .fa-solid{
+    padding: 10px;
+}
+
+.fa-regular{
+
+} */
+
+/* 
+background : rgb(69,83,126)
+container background : rgb(48,49,81)
+
+*/

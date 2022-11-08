@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/af752d41f3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Music Player</title>
+</head>
+
+<body>
+    <audio id="audio-element"></audio>
+    <div id="container">
+        <div id="head">
+            <i class="fa-solid fa-angle-down"></i>
+            <!-- <i class="fa-solid fa-heart"></i>  full -->
+            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div id="main-content">
+            <img src="images//TheWeekendBlinkingLisghts.png" alt="" id="song-image" />
+            <h1 id="song-name"></h1>
+            <p id="channel-name"></p>
+            <input type="range" id="song-range" min="0" value="0" />
+        </div>
+        <div id="controls">
+            <i class="fa-solid fa-backward-step" id="prev"></i>
+            <i class="fa-solid fa-circle-play" id="play"></i>
+            <i class="fa-solid fa-forward-step" id="next"></i>
+        </div>
+    </div>
+
+</body>
+<script src="index.js"></script>
+</html>
